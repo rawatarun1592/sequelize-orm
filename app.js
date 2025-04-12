@@ -46,7 +46,10 @@ const db = require('./config/database');
 })();
 
 // Routes
-app.get('/', (req, res) => res.send('INDEX'));
+//app.get('/', (req, res) => res.send('INDEX'));
+
+//gigs routes
+app.use('/gigs', require('./routes/gigs'))
 
 // Server startup
 const PORT = process.env.PORT || 50818;

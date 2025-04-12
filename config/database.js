@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
 
-//const app = express();
-
 // Database configuration
 module.exports = new Sequelize('postgres', 'postgres', 'postgres', {
   host: 'localhost',
