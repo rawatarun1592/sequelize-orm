@@ -5,6 +5,8 @@
   --primary-hover-color: #64a5b7;
   --bg-color: #333;
   --box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.7);
+  --danger-color: #dc3545;
+  --danger-hover: #c82333;
 }
 
 * {
@@ -65,11 +67,6 @@ header nav li {
   margin: 0 1rem;
 }
 
-/* Login Button Spacing */
-/*header nav li:last-child {
-  margin-left: -5px;
-}*/
-
 header.inner {
   background: var(--bg-color);
   border-bottom: 4px solid var(--primary-color);
@@ -99,6 +96,52 @@ header.inner {
 .btn-reverse:hover {
   background: var(--primary-hover-color);
   border: 1px solid var(--primary-hover-color);
+}
+
+/* Delete Button Styles */
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 0;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.7s;
+  font-size: 1rem;
+  display: inline-block;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-danger:hover {
+  background-color: var(--danger-hover);
+  color: #fff;
+}
+
+.btn-danger .fa-trash {
+  margin-right: 0.5rem;
+  color: inherit;
+}
+
+/* Gig item with delete button adjustments */
+.gig {
+  position: relative;
+  background: var(--bg-color);
+  border-bottom: 4px solid var(--primary-color);
+  color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.gig .action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.gig .action-buttons .btn {
+  flex: 1;
 }
 
 /* Home Search */
@@ -146,8 +189,8 @@ header.inner {
   color: #333;
 }
 
-/* Everything in the search form */
-.search-form > * {
+input[type='search'] {
+  flex-basis: 600px;
   border: 0;
   padding: 0 0 0 10px;
   background: #fff;
@@ -157,20 +200,7 @@ header.inner {
   outline: 0;
 }
 
-input[type='search'] {
-  flex-basis: 600px;
-}
-
 /* Gigs */
-.gig {
-  background: var(--bg-color);
-  border-bottom: 4px solid var(--primary-color);
-  color: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: var(--box-shadow);
-}
-
 .gig ul {
   list-style: none;
   display: flex;
@@ -258,10 +288,8 @@ label {
     flex-direction: column;
   }
 
-  .gig .btn {
-    display: block;
-    margin-top: 1rem;
-    text-align: center;
+  .gig .action-buttons {
+    flex-direction: column;
   }
 
   .form-wrap.reg-form,

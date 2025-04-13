@@ -1,20 +1,28 @@
 <section id="gigs" class="container">
-    <h1>All Gigs</h1>
-
+  <h1>All Gigs {{#if searchTerm}}matching "{{searchTerm}}"{{/if}}</h1>
+  
+  {{#if gigs.length}}
     {{#each gigs}}
-      <div class="gig">
-      <h3>{{title}}</h3>
-      <p>{{description}}</p>
-      <ul>
-        <li>Budget: {{budget}}</li>
-        <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li>
-      </ul>
-      <div class="tech">
-        <small>Technologies Needed: <span>{{technologies}}</span></small>
+      <div class="gig" data-id="{{id}}">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <ul>
+          <li>Budget: {{budget}}</li>
+          <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li>
+        </ul>
+        <div class="tech">
+          <small>Technologies Needed: <span>{{technologies}}</span></small>
+        </div>
       </div>
-    </div>
+    {{/each}}
+  {{else}}
+    {{#if searchTerm}}
+      <p>No gigs found matching "{{searchTerm}}"</p>
+      <a href="/gigs" class="btn">Browse All Gigs</a>
     {{else}}
       <p>No gigs available</p>
-    {{/each}}
-    
-  </section>
+    {{/if}}
+  {{/if}}
+</section>
+
+<script src="/js/main.js"></script>
